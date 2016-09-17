@@ -1,6 +1,16 @@
 from subprocess import call
+import paramiko
+from scp import SCPClient
 
+ssh = SSHClient()
+#ssh.load_system_host_keys()
+client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+ssh.connect('example.com')
 
-for i in range(1,255):
-  call(["scp", "student@10.11.5.1:/home/student/sys.log student@10.11.5.{}"]).format(i)
+# SCPCLient takes a paramiko transport as its only argument
+scp = SCPClient(ssh.get_transport())
 
+scp.put('test.txt', 'test2.txt')
+scp.get('test2.txt')
+
+scp.close()
