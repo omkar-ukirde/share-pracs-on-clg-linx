@@ -11,7 +11,7 @@ for byte_3rd in range([5:7]):
     ssh.connect('10.11.{}.{}','22','student','studnet').format(byte_3rd,byte_4th)
     # SCPCLient takes a paramiko transport as its only argument
     scp = SCPClient(ssh.get_transport())
-    #scp.put('test.txt', 'test2.txt')
+    scp.put('test.txt', 'test2.txt')
     #scp.get('test2.txt')
     scp.close()
 
